@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vina - Web Developer</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Great+Vibes&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav-row">
+      <div class="brand">
+        <a href="#home" class="brand-link">
+          <div class="logo">
+            <div class="logo-top">
+              <span class="logo-v">V</span>
+              <span class="logo-ina">ina</span>
+            </div>
+            <div class="logo-sub">Web Developer</div>
+          </div>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="addProjectBtn" class="btn-outline btn-animate">+ Add Project</button>
+      </div>
+    </div>
+  </header>
+  <!--HEADER END-->
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-left">
+        <h1 class="hero-title">Hi I'm <span>Vina</span></h1>
+        <p class="lead">I build responsive, accessible & modern web experiences using HTML, CSS, and JavaScript.</p>
+        <br>
+        <div class="hero-cta">
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="#contact" class="btn-ghost">Hire Me</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="profile-card" tabindex="0">
+          <img src="profile.jpg" alt="Veena profile" class="profile-img">
+          <div class="profile-info">
+            <h3>Vina</h3>
+            <p>Web Developer • MCA Student</p>
+            <div class="profile-links">
+              <a href="https://github.com/Vkparmar" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://www.linkedin.com/in/parmar-vina-885a52211/" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--HERO END-->
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p>I am a passionate and self-motivated web developer who loves turning ideas into interactive and user-friendly
+        websites. I have experience working with HTML, CSS, and JavaScript, and I enjoy building projects that improve
+        my skills and solve real-world problems. My goal is to keep learning, stay creative, and deliver high-quality
+        work.</p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section alt">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill">HTML5</div>
+        <div class="skill">CSS3 / Grid / Flexbox</div>
+        <div class="skill">JavaScript (ES6+)</div>
+        <div class="skill">Responsive Design</div>
+        <div class="skill">Git & GitHub</div>
+        <div class="skill">Basic Node.js</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container header-row">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-controls">
+        <input id="searchInput" type="search" placeholder="Search projects..." aria-label="Search projects">
+        <select id="filterSelect" aria-label="Filter by">
+          <option value="all">All</option>
+          <option value="frontend">Frontend</option>
+          <option value="pwa">PWA</option>
+          <option value="game">Game</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="projectsGrid" class="projects-grid" aria-live="polite">
+        <!-- project cards injected here -->
+      </div>
+      <p id="noProjectsMsg" class="muted" style="display:none">No projects yet. Click "Add Project" to add your first
+        project.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section alt">
+    <div class="container">
+      <h2 class="section-title contact-title">Contact</h2>
+      <form id="contactForm" class="contact-form">
+        <div class="form-row">
+          <input type="text" placeholder="Your name" required>
+          <input type="email" placeholder="Your email" required>
+        </div>
+        <textarea placeholder="Your message" rows="5" required></textarea>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div>© <span id="year"></span> created by Vina. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- PROJECT MODAL -->
+  <div id="projectModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-panel" role="document">
+      <button class="modal-close" aria-label="Close modal">×</button>
+      <h3 id="modalTitle">Add New Project</h3>
+      <form id="projectForm" class="project-form" novalidate>
+        <input type="text" id="projTitle" placeholder="Project Title" required>
+        <input type="url" id="projLink" placeholder="Live / Repo Link">
+        <textarea id="projDesc" placeholder="Description" required></textarea><br>
+        <!-- New Category Field -->
+        <select id="projCategory" required>
+          <option value="">Select Category</option>
+          <option value="frontend">Frontend</option>
+          <option value="pwa">PWA</option>
+          <option value="game">Game</option>
+        </select><br><br>
+        <input type="file" id="projImage" accept="image/*"><br><br>
+        <div class="form-row">
+          <button type="submit" class="btn-primary">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
