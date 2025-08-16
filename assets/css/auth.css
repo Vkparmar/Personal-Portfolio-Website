@@ -1,0 +1,145 @@
+/* Animated Gradient Background */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #667eea, #764ba2, #43cea2, #185a9d);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Card Container */
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 16px;
+    width: 380px;
+    box-shadow: 0px 15px 30px rgba(0,0,0,0.2);
+    text-align: center;
+    animation: zoomFade 0.8s ease;
+}
+
+@keyframes zoomFade {
+    from { opacity: 0; transform: scale(0.8) translateY(-20px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Floating Label Inputs */
+.input-box {
+    position: relative;
+    width: 100%;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #777;
+    font-size: 14px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.input-box input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 6px rgba(102,126,234,0.6);
+}
+
+.input-box input:focus + label,
+.input-box input:not(:placeholder-shown) + label {
+    top: -8px;
+    left: 10px;
+    background: #fff;
+    padding: 0 6px;
+    font-size: 12px;
+    color: #667eea;
+}
+
+/* Button with Shine Animation */
+button {
+    padding: 12px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.3);
+    transform: skewX(-20deg);
+    transition: left 0.5s ease;
+}
+
+button:hover::after {
+    left: 100%;
+}
+
+/* Links */
+a {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: #667eea;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #333;
+}
+
+/* Error */
+p {
+    margin-bottom: 1rem;
+    color: red;
+    font-size: 14px;
+}
